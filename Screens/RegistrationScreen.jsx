@@ -1,7 +1,7 @@
 import React from 'react';
 import { Keyboard, ImageBackground, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({navigation}) {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -28,6 +28,7 @@ export default function RegistrationScreen() {
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
+    navigation.navigate("Home"); 
   };
 
   const keyboardHide = () => {
@@ -94,7 +95,7 @@ export default function RegistrationScreen() {
             <View style={styles.loginContainer}>
               <Text style={styles.loginText}>Already have account?</Text>
               <TouchableOpacity>
-                <Text style={styles.loginButton}>Login</Text>
+                <Text style={styles.loginButton} onPress={() => navigation.navigate("Login")} >Login</Text>
               </TouchableOpacity>
             </View>
           </View>
